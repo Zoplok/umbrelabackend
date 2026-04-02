@@ -20,7 +20,10 @@ export async function register(input) {
     throw new AppError('Email already exists', 409)
   }
 
+  console.log('[AuthService] Generating password hash...')
   const passwordHash = await bcrypt.hash(input.password, 10)
+  
+  console.log('[AuthService] Creating user in DB...')
   const user = await prisma.user.create({
     data: {
       id: createId(),

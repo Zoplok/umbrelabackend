@@ -11,6 +11,7 @@ export function notFoundHandler(_req, _res, next) {
 }
 
 export function errorHandler(error, _req, res, _next) {
+  console.error('[Error Handler]:', error)
   const statusCode = error.statusCode || 500
   res.status(statusCode).json({
     message: error.message || 'Internal server error',
