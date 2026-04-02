@@ -24,6 +24,6 @@ app.get('/health', (_req, res) => {
   res.json({ ok: true, service: 'delivery-backend' })
 })
 
-app.use('/', apiRouter)
+app.use('/api', apiRouter)
 app.use(notFoundHandler)
 app.use(errorHandler)
